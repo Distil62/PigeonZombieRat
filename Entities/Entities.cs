@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PigeonVsRatsVsZombie
 {
+    /// <summary>
+    /// Classe qui gère toutes les Entités présente dans un Ecosystème
+    /// </summary>
     public class Entities : IEntities, IObservable<Dictionary<string, Entity>>
     {
         public Dictionary<string, Entity> AllEntities { get; set; }
@@ -32,8 +35,8 @@ namespace PigeonVsRatsVsZombie
 
         public void MooveAll(int Height, int Width)
         {
-            var AllEntitiesCpy = AllEntities;
-            foreach (var entity in AllEntities)
+            var AllEntitiesCpy = new Dictionary<string, Entity>(AllEntities);
+            foreach (var entity in AllEntitiesCpy)
             {
                 entity.Value.Moove(Height, Width);
                 foreach (var verifEntity in AllEntitiesCpy)

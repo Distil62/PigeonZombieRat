@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace PigeonVsRatsVsZombie
 {
+    /// <summary>
+    /// Classe qui gère l'écosystème.
+    /// Note de dev :
+    /// Je voulais faire un système de case qui contienderais une liste des Entités présentes sur cette case 
+    /// afin de stack plusieurs entités sur la même case mais je n'ai pas implementé cette feature.
+    /// </summary>
     abstract class Ecosystem
     {
         private Dictionary<Tuple<int, int>, Case> Positions { get; set; }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PigeonVsRatsVsZombie
 {
+    /// <summary>
+    /// Observateur spécifique aux collisions entre Entité
+    /// </summary>
     public class CollisionObserver : Observer
     {
         public Random Rng = new Random();
@@ -16,6 +19,13 @@ namespace PigeonVsRatsVsZombie
             Subject.Attach(this);
         }
 
+        /// <summary>
+        /// En fonction de la source de la collision et l'entité qui à été rencontré il y a modification de la liste des entitié
+        /// Note de dév :
+        /// J'aurais du faire un visitor ici T_T
+        /// </summary>
+        /// <param name="src"></param>
+        /// <param name="target"></param>
         public override void Update(Entity src, Entity target)
         {
             Console.WriteLine("Collision ! entre " + src.GetType() + " et " + target.GetType());
@@ -40,6 +50,11 @@ namespace PigeonVsRatsVsZombie
                         Console.WriteLine("Un pigeon à tué un rat");
                     }
                 }
+                else
+                {
+                    Subject.AllEntities.Remove(target.Key);
+                    Console.WriteLine("Le Rat a mangé le Zombie");
+                }
             }
 
             else if (src.GetType() == typeof(Pigeon))
@@ -56,6 +71,11 @@ namespace PigeonVsRatsVsZombie
                         Subject.AllEntities.Remove(src.Key);
                         Console.WriteLine("Un rat a tué un pigeon");
                     }
+                }
+                else
+                {
+                    Subject.AllEntities.Remove(target.Key);
+                    Console.WriteLine("Le Pigeon a mangé le Zombie");
                 }
             }
         }
