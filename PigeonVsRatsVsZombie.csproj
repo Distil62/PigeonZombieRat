@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18E0A899-8357-484C-A6AE-184743EF14CC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PigeonVsRatsVsZombie</RootNamespace>
+    <AssemblyName>PigeonVsRatsVsZombie</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ecosystem\Case.cs" />
+    <Compile Include="Ecosystem\CommonEcosystem.cs" />
+    <Compile Include="Ecosystem\Ecosystem.cs" />
+    <Compile Include="Entities\Decorator\PacificPigeonDecorator.cs" />
+    <Compile Include="Entities\Entities.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\Enum\Direction.cs" />
+    <Compile Include="Entities\Factories\CitadinFactory.cs" />
+    <Compile Include="Entities\Factories\IEntitiesFactory.cs" />
+    <Compile Include="Entities\Factories\RandomFactory.cs" />
+    <Compile Include="Entities\Factories\UmbrellaCorpFactory.cs" />
+    <Compile Include="Entities\Interfaces\IEntities.cs" />
+    <Compile Include="Entities\Interfaces\IEntity.cs" />
+    <Compile Include="Entities\Pigeon.cs" />
+    <Compile Include="Entities\Rat.cs" />
+    <Compile Include="Entities\Zombie.cs" />
+    <Compile Include="Observers\IObserver.cs" />
+    <Compile Include="Observers\IObservable.cs" />
+    <Compile Include="Observers\Observer.cs" />
+    <Compile Include="Observers\CollisionObserver.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Simulation\Simulation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Simulation\Enum\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
